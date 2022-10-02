@@ -1,1 +1,47 @@
-# Design and Analysis of 7T SRAM Cell along with Peripheral Circuitry using Google SKY130 PDK
+# Design and Analysis of 7T SRAM Cell and Peripheral Circuitry using Google SKY130 PDK
+
+This repository contains the development and analysis of 7T SRAM using the eSIM tool. The 7T SRAM cell is designed on 130nm VLSI fabrication technology. This project was developed during the [IIT Bombay Mixed Signal Design Hackathon](https://esim.fossee.in/mixed-signal-soc-design-marathon).
+# Table of Contents
+- [Introduction](#introduction)
+  - [Problem Statement](#problem-statement)
+- [Basics of SRAM](#basics-of-sram)
+- [Tools Used](#tools-used)
+- [SRAM Cell Design](#sram-cell-design)
+- [SRAM Cell Analysis](#sram-cell-analysis)
+  - [HSNM](#hsnm)
+  - [RSNM](#rsnm)
+  - [WSNM](#wsnm)
+  - [BLM](#blm)
+  - [WLM](#wlm)
+  - [Write Access Time](#write-access-time)
+  - [Area Estimates](#area-estimates)
+- [Precharge Circuit](#precharge-circuit)
+- [Sense Amplifier](#sense-amplifier)
+- [Scaling](#scaling)
+- [Conclusion](#conclusion)
+- [Author](#author)
+- [Acknowledgements](#acknowledgements)
+- [References](#references)
+
+# Introduction
+SRAMs are the type of random access memories. They store information in the form of static latch (cross-coupled inverters). They don't require periodic refresh and have short access delays and low power consumption. Due to these properties, they are a better contender for cache memories inside the processors and microcontrollers. They are usually present in various sizes ranging from several KBs to a few MBs'.
+## Problem Statement
+
+Development and analysis of a 7T SRAM cell on 130nm fabrication technology using eSIM.
+1. Plot the various signal to noise margins.
+2. Determine the access time.
+3. Calculate the area estimates.
+
+# Basics of SRAM
+
+Let us first understand how a [6T SRAM](images/6t.png) cell works.  It consists of two cross-coupled inverters (MNL, MPL and MNR, MPR) and two access transistors at its complementary nodes Q and QB. The two bit lines (BL and BLB) are connected through access transistors. The access transistors are controlled by wordline (WL). Wordline is set 1 or 0 according to the operation needed. 1 for write operation and 0 for read as can be better understood by the following table.
+
+| Control Signal  | Operation | Operation | Operation | Operation |
+| --- | --- | --- | --- | --- |
+|     | Write '0' | Write '1' | Read | Hold |
+| BL  | 0 | 1 | Pre | 1|
+| BLB | 1 | 0 | Pre | 1|
+| WL  | 1 | 1 | 1   | 0|
+
+- 6T SRAM cell
+![6t](images/6t.png)
