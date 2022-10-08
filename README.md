@@ -7,7 +7,7 @@ This repository contains the development and analysis of 7T SRAM using the eSIM 
 - [Basics of SRAM](#basics-of-sram)
 - [Tools Used](#tools-used)
 - [SRAM Cell Design](#sram-cell-design)
-- [Decoder Circuit](#3:8 Decoder)
+- [Decoder Circuit](#decoder-circuit)
 - [Scaling and Integration](#scaling-and-integration)
 - [Conclusion](#conclusion)
 - [Author](#author)
@@ -19,9 +19,9 @@ SRAMs are the type of random access memories. They store information in the form
 ## Problem Statement
 
 Development and analysis of a 7T SRAM cell on 130nm fabrication technology using eSIM.
-1. Plot the various signal to noise margins.
-2. Determine the access time.
-3. Calculate the area estimates.
+1. Verify the read and write operations
+2. Design digital peripheral circuitry.
+3. Integration and verification.
 
 # Basics of SRAM
 
@@ -101,7 +101,7 @@ The above circuit is simulated and the [figure](images/write0and1.png) depicts t
 - Read 1 on a 7T SRAM cell
 ![r1](images/read1.png)
 
-# 3:8 Decoder
+# Decoder Circuit
 A decoder is designed in the makerchip and then converted to spice using NgVeri software. The verilog coge for the decoder is given below:
 
 ```
