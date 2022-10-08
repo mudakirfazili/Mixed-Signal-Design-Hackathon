@@ -1,0 +1,47 @@
+* d:\esim-workspace\7thsnm\7thsnm.cir
+
+.include "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__linear.model.spice"
+.include "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__pnp.model.spice"
+.include "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__diode_pw2nd_11v0.model.spice"
+.include "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__r+c.model.spice"
+.lib "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130.lib.spice" tt
+.include "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__diode_pd2nw_11v0.model.spice"
+.include "D:\FOSSEE\eSim\library\sky130_fd_pr\models\sky130_fd_pr__model__inductors.model.spice"
+* u1  qb plot_v1
+* u3  q plot_v1
+v1  vdd gnd 1.8
+
+v2 wl gnd  pwl  0  1.8, 10n 0, 20n 0, 40n 0, 50n 1.8
+v3 wr gnd  pwl  0  0, 10n 0, 20n 1.8, 40n 1.8, 50n 0
+.ic v(blb) 1.8
+.ic v(bl) 1.8
+.ic v(q) 1.8
+.ic v(qb) 0
+
+v6 r  gnd pwl 	 0  0, 15n 0, 20n 1.8, 35n 1.8, 40n 0
+
+* u2  wr plot_v1
+xsc2 q qb net-_sc2-pad3_ vdd sky130_fd_pr__pfet_01v8_lvt 
+xsc5 net-_sc2-pad3_ q net-_sc4-pad1_ vdd sky130_fd_pr__pfet_01v8_lvt 
+xsc3 q qb gnd gnd sky130_fd_pr__nfet_01v8_lvt 
+xsc6 gnd q net-_sc4-pad1_ gnd sky130_fd_pr__nfet_01v8_lvt 
+xsc1 qb wl blb gnd sky130_fd_pr__nfet_01v8_lvt 
+xsc7 bl r q gnd sky130_fd_pr__nfet_01v8_lvt 
+xsc4 net-_sc4-pad1_ wr qb gnd sky130_fd_pr__nfet_01v8_lvt 
+* s c m o d e
+xsc9 net-_sc2-pad3_ vdd vdd sky130_fd_pr__res_generic_nd 
+xsc8 blb gnd sky130_fd_pr__cap_mim_m3_1 
+xsc10 bl gnd sky130_fd_pr__cap_mim_m3_1 
+* u4  blb plot_v1
+* u5  bl plot_v1
+
+.tran 0.1e-09 150e-09 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot v(qb) v(q)+2 v(wl)+4 v(blb)+6 v(bl)+8
+.endc
+.end

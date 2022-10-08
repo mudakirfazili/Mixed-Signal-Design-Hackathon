@@ -1,0 +1,32 @@
+* D:\eSim-Workspace\7THSNM\7THSNM.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: 10/08/22 16:41:44
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+U1  QB plot_v1		
+U3  Q plot_v1		
+v2  WL GND DC		
+v3  WR GND DC		
+v4  BLB GND DC		
+v1  VDD GND 1.8		
+U2  WR plot_v1		
+SC2  Q QB Net-_SC2-Pad3_ VDD sky130_fd_pr__pfet_01v8_lvt		
+SC5  Net-_SC2-Pad3_ Q Net-_SC4-Pad1_ VDD sky130_fd_pr__pfet_01v8_lvt		
+SC3  Q QB GND GND sky130_fd_pr__nfet_01v8_lvt		
+SC6  GND Q Net-_SC4-Pad1_ GND sky130_fd_pr__nfet_01v8_lvt		
+SC1  QB WL BLB GND sky130_fd_pr__nfet_01v8_lvt		
+SC7  BL R Q GND sky130_fd_pr__nfet_01v8_lvt		
+SC4  Net-_SC4-Pad1_ WR QB GND sky130_fd_pr__nfet_01v8_lvt		
+scmode1  SKY130mode		
+SC9  Net-_SC2-Pad3_ VDD VDD sky130_fd_pr__res_generic_nd		
+SC8  BLB GND sky130_fd_pr__cap_mim_m3_1		
+SC10  BL GND sky130_fd_pr__cap_mim_m3_1		
+U4  BLB plot_v1		
+U5  BL plot_v1		
+v5  BL GND DC		
+v6  R GND DC		
+
+.end
