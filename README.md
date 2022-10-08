@@ -39,9 +39,18 @@ Let us first understand how a [6T SRAM](images/6t.png) cell works.  It consists 
 - 6T SRAM cell
 ![6t](images/6t.png)
 
+A novel 7T SRAM cell is designed to reduce the activity factor of discharging the bit line pair during a write operation. Single ended read and write operations are performed. Read SNM is significantly improved.
 
-- 6T SRAM cell
-![6t](images/7TSRAM full.pdf)
+| Control Signal  | Operation | Operation | Operation | Operation |
+| --- | --- | --- | --- | --- |
+|     | Write '0' | Write '1' | Read | Hold |
+| BL  | 0 | 1 | Pre | 1|
+| BLB | 1 | 0 | Pre | 1|
+| WL  | 1 | 1 | 0   | 0|
+| WR  | 0 | 0 | 1   | 1|
+| R   | 0 | 0 | 1   | 0|
+- 7T SRAM cell
+![6t](images/7t.png)
 
 
 # 3:8 Decoder
