@@ -39,6 +39,11 @@ Let us first understand how a [6T SRAM](images/6t.png) cell works.  It consists 
 - 6T SRAM cell
 ![6t](images/6t.png)
 
+
+- 6T SRAM cell
+![6t](images/7TSRAM full.pdf)
+
+
 # 3:8 Decoder
 
 ```
