@@ -136,7 +136,8 @@ The spice model is then tested using the schematic editor and care has to be tak
 # Scaling and Integration
 
 
-
+- Scaled and Integrated 16-byte memory.
+![6t](images/combi.png)
 
 # Conclusion
 
