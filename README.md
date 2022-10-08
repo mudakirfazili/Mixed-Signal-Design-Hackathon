@@ -49,9 +49,18 @@ A novel 7T SRAM cell is designed to reduce the activity factor of discharging th
 | WL  | 1 | 1 | 0   | 0|
 | WR  | 0 | 0 | 1   | 1|
 | R   | 0 | 0 | 1   | 0|
-- 7T SRAM cell
-![6t](images/7t.png)
 
+- 7T SRAM cell
+![7t](images/7t.png)
+
+- Write 0 and 1 on 7T SRAM cell
+![w01](images/write0and1.png)
+
+- Read 0 on a 7T SRAM cell
+![r0](images/read0.png)
+
+- Read 1 on a 7T SRAM cell
+![r1](images/read1.png)
 
 # 3:8 Decoder
 
